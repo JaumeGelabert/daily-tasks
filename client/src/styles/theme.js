@@ -9,7 +9,7 @@ import { tabsTheme } from './tabs/tabs';
 // import { ButtonStyles as Button } from './button/buttonStyles';
 
 const config = {
-  initialColorMode: 'dark',
+  initialColorMode: 'light',
   useSystemColorMode: false,
 };
 
