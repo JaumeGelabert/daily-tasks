@@ -9,13 +9,7 @@ import { textTheme } from './text/text';
 
 // import { ButtonStyles as Button } from './button/buttonStyles';
 
-const config = {
-  initialColorMode: 'light',
-  useSystemColorMode: false,
-};
-
 export const theme = extendTheme({
-  config,
   colors: {
     gray: {
       bg: '#F0F0F0', // Background color
