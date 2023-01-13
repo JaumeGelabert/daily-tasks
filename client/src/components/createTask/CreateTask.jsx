@@ -51,7 +51,7 @@ export default function CreateTask() {
     <>
       <Flex
         w="100%"
-        maxW={isDesktop ? '700px' : null}
+        maxW={isDesktop ? '700px' : '100%'}
         h="fit-content"
         mb="2rem"
         direction="column"
