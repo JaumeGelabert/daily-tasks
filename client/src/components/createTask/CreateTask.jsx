@@ -41,10 +41,10 @@ export default function CreateTask() {
   };
 
   const handleFormSubmit = async (values, onSubmitProps) => {
-    setIsLoading(!isLoading);
+    setIsLoading(true);
     await newTask(values, onSubmitProps);
     setRefreshTasks(!refreshTasks);
-    setIsLoading(!isLoading);
+    setIsLoading(false);
   };
 
   return (
@@ -83,6 +83,7 @@ export default function CreateTask() {
                     w="100%"
                   />
                   <Button
+                    isLoading={isLoading}
                     type="submit"
                     variant="primary"
                     ml={isDesktop ? '1rem' : null}
