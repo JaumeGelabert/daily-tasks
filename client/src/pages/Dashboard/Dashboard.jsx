@@ -70,9 +70,14 @@ export default function Dashboard() {
 
   return (
     <>
-      <Flex bg="#F7F7F7" w="100%" h="100vh">
+      <Flex w="100%" h="100vh">
         <ContentWrapper>
-          <Flex direction="column" alignItems="center" w="100%" mt="10rem">
+          <Flex
+            direction="column"
+            alignItems="center"
+            w="100%"
+            mt="10rem"
+          >
             <Flex w="100%" justifyContent="center">
               <CreateTask />
             </Flex>

@@ -5,6 +5,7 @@ import { headingTheme } from './heading/heading';
 import { inputTheme } from './input/input';
 import { linkTheme } from './link/link';
 import { tabsTheme } from './tabs/tabs';
+import { textTheme } from './text/text';
 
 // import { ButtonStyles as Button } from './button/buttonStyles';
 
@@ -17,6 +18,7 @@ export const theme = extendTheme({
   config,
   colors: {
     gray: {
+      bg: '#F0F0F0', // Background color
       border: '#D0D5DD', // Border
       borderHover: '#a7adbb',
       200: '#667085', // Secondary text
@@ -56,5 +58,6 @@ export const theme = extendTheme({
     Badge: badgeTheme,
     Tabs: tabsTheme,
     Input: inputTheme,
+    Text: textTheme,
   },
 });

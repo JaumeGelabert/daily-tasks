@@ -14,6 +14,12 @@ const subhero = defineStyle({
   marginBottom: '.25rem',
 });
 
+const featureTitle = defineStyle({
+  color: 'gray.400',
+  fontWeight: 'semibold',
+  fontSize: '2rem',
+});
+
 export const headingTheme = defineStyleConfig({
-  variants: { hero, subhero },
+  variants: { hero, subhero, featureTitle },
 });
