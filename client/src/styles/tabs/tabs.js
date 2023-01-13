@@ -9,6 +9,7 @@ const primary = defineStyle({
   tab: {
     p: '.3rem .7rem',
     borderRadius: '10px',
+    color: 'green.main',
     _selected: {
       bg: 'green.softActive',
       color: 'green.main',
