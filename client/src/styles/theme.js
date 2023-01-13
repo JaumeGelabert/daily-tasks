@@ -1,7 +1,10 @@
 import { extendTheme } from '@chakra-ui/react';
+import { badgeTheme } from './badge/badge';
 import { buttonTheme } from './button/button';
 import { headingTheme } from './heading/heading';
+import { inputTheme } from './input/input';
 import { linkTheme } from './link/link';
+import { tabsTheme } from './tabs/tabs';
 
 // import { ButtonStyles as Button } from './button/buttonStyles';
 
@@ -15,7 +18,7 @@ export const theme = extendTheme({
   colors: {
     gray: {
       border: '#D0D5DD', // Border
-      50: '#F6F6F6', // Hover bg
+      borderHover: '#a7adbb',
       200: '#667085', // Secondary text
       400: '#101828', // Main text
     },
@@ -50,5 +53,8 @@ export const theme = extendTheme({
     Heading: headingTheme,
     Button: buttonTheme,
     Link: linkTheme,
+    Badge: badgeTheme,
+    Tabs: tabsTheme,
+    Input: inputTheme,
   },
 });

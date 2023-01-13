@@ -22,7 +22,16 @@ const secondary = defineStyle({
     backgroundColor: 'green.softActive',
   },
 });
+const customLink = defineStyle({
+  p: '0',
+  h: 'fit-content',
+  bg: 'none',
+  color: 'gray.200',
+  _hover: {
+    color: 'gray.400',
+  },
+});
 
 export const buttonTheme = defineStyleConfig({
-  variants: { primary, secondary },
+  variants: { primary, secondary, customLink },
 });
