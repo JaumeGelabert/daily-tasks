@@ -71,10 +71,7 @@ export default function CreateTask() {
           }) => (
             <>
               <Form onSubmit={handleSubmit}>
-                <Flex
-                  direction={isDesktop ? 'row' : 'column'}
-                  w={isDesktop ? '100%' : '90%'}
-                >
+                <Flex direction={isDesktop ? 'row' : 'column'} w="100%">
                   <Input
                     variant="pill"
                     type="text"
