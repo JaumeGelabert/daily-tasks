@@ -9,7 +9,7 @@ import {
   Link,
 } from '@chakra-ui/react';
 
-// React Router Dom imports
+// Routing imports
 import { Link as ReacherLink } from 'react-router-dom';
 
 // Icons
@@ -19,7 +19,7 @@ import { HiOutlineArrowTopRightOnSquare as ExternalIcon } from 'react-icons/hi2'
 import LongBadge from '../../components/badges/LongBadge';
 import ContentWrapper from '../../components/utils/ContentWrapper';
 
-export default function () {
+export default function Landing() {
   return (
     <>
       <ContentWrapper>
@@ -48,7 +48,9 @@ export default function () {
             <Heading variant="subhero">As simple as it gets</Heading>
           </Box>
           <ButtonGroup>
-            <Button variant="primary">Create tasks</Button>
+            <Button variant="primary" as={ReacherLink} to="/dashboard">
+              Create tasks
+            </Button>
             <Button variant="secondary">About</Button>
           </ButtonGroup>
         </Flex>

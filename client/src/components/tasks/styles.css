@@ -1,0 +1,12 @@
+.containerDelete {
+  display: none;
+}
+
+.parentContainerDelete:hover .containerDelete {
+  display: block;
+}
+
+.parentContainerDelete:hover .containerDelete:hover {
+  cursor: pointer;
+  fill: #101828;
+}
