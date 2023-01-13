@@ -5,7 +5,7 @@ export default function ContentWrapper({ children }) {
   console.log(isDesktop);
   return (
     <>
-      <Flex w="100%" justifyContent="center">
+      <Flex w="100%" justifyContent="center" bg="#F7F7F7">
         <Flex
           w="100%"
           maxW={isDesktop ? '1000px' : '100%'}

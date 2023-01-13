@@ -29,7 +29,7 @@ export default function Landing() {
           justifyContent="center"
           h="100vh"
           w="100%"
-          bg="#F7F7F7"
+
         >
           <Box textAlign="center" mb="2rem">
             <Center mb="1rem">

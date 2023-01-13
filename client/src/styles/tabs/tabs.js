@@ -10,10 +10,9 @@ const primary = defineStyle({
     p: '.3rem .7rem',
     borderRadius: '10px',
     color: 'green.main',
+    fontWeight: 'medium',
     _selected: {
       bg: 'green.softActive',
-      color: 'green.main',
-      fontWeight: 'medium',
     },
   },
 });
