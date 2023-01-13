@@ -2,7 +2,6 @@ import { Flex, useMediaQuery } from '@chakra-ui/react';
 
 export default function ContentWrapper({ children }) {
   const [isDesktop] = useMediaQuery('(min-width: 800px)');
-  console.log(isDesktop);
   return (
     <>
       <Flex w="100%" justifyContent="center" bg="#F7F7F7">

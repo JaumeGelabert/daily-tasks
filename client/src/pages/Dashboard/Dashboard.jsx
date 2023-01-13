@@ -5,13 +5,14 @@ import { useContext, useState, useEffect } from 'react';
 import {
   Button,
   Flex,
+  Skeleton,
   Tab,
   TabList,
   TabPanel,
   TabPanels,
   Tabs,
+  Text,
   useToast,
-  useMediaQuery,
 } from '@chakra-ui/react';
 import NumTasksBadge from '../../components/badges/NumTasksBadge';
 import CreateTask from '../../components/createTask/CreateTask';
@@ -22,16 +23,19 @@ import UrlBase from '../../components/utils/UrlBase';
 import { TasksContext } from '../../App';
 
 // Icons
-import { HiTrash as TrashIcon, HiSun as SunIcon } from 'react-icons/hi2';
+import { HiTrash as TrashIcon } from 'react-icons/hi2';
 import NoTasks from '../../components/tasks/NoTasks';
 
 export default function Dashboard() {
-  const [isDesktop] = useMediaQuery('(min-width:800px)');
-
   const { refreshTasks, setRefreshTasks } = useContext(TasksContext);
 
   const [tasksToDo, setTasksToDo] = useState();
   const [tasksDone, setTasksDone] = useState();
+
+  // useState para controlar el Loading
+  const [toDoIsLoading, setToDoIsLoading] = useState(true);
+  const [doneIsLoading, setDoneIsLoading] = useState(true);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const toast = useToast();
 
@@ -42,6 +46,9 @@ export default function Dashboard() {
       })
       .then((data) => {
         setTasksToDo(data);
+      })
+      .then(() => {
+        setToDoIsLoading(false);
       });
   }, [refreshTasks]);
   useEffect(() => {
@@ -51,10 +58,14 @@ export default function Dashboard() {
       })
       .then((data) => {
         setTasksDone(data);
+      })
+      .then(() => {
+        setDoneIsLoading(false);
       });
   }, [refreshTasks]);
 
   const deleteCompletedTasks = async () => {
+    setIsDeleting(true);
     await fetch(`${UrlBase}/tasks/delete/completed`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
@@ -65,19 +76,21 @@ export default function Dashboard() {
       duration: 2000,
       isClosable: true,
     });
+    setTimeout(() => {
+      setIsDeleting(false);
+    }, 1000);
     setRefreshTasks(!refreshTasks);
   };
+
+  // Console.log() divertido para los más cotillas
+  console.log('Why couldn’t the React component understand the joke?');
+  console.log('Because it didn’t get the context.');
 
   return (
     <>
       <Flex w="100%" h="100vh">
         <ContentWrapper>
-          <Flex
-            direction="column"
-            alignItems="center"
-            w="100%"
-            mt="10rem"
-          >
+          <Flex direction="column" alignItems="center" w="100%" mt="10rem">
             <Flex w="100%" justifyContent="center">
               <CreateTask />
             </Flex>
@@ -85,17 +98,23 @@ export default function Dashboard() {
               <TabList>
                 <Tab>
                   To-Do
-                  <NumTasksBadge num={tasksToDo?.length} />
+                  <NumTasksBadge
+                    num={toDoIsLoading ? '-' : tasksToDo?.length}
+                  />
                 </Tab>
                 <Tab>
                   Done!
-                  <NumTasksBadge num={tasksDone?.length} />
+                  <NumTasksBadge
+                    num={doneIsLoading ? '-' : tasksDone?.length}
+                  />
                 </Tab>
               </TabList>
               <TabPanels>
                 <TabPanel px="0px">
                   <Flex direction="column" alignItems="center" w="100%">
-                    {tasksToDo?.length === 0 ? (
+                    {toDoIsLoading ? (
+                      <Skeleton height="1rem" w="50%" />
+                    ) : tasksToDo?.length === 0 ? (
                       <NoTasks text="Done! Go out and take some sun :)" />
                     ) : (
                       tasksToDo?.map(({ _id, text, isCompleted }) => (
@@ -113,8 +132,16 @@ export default function Dashboard() {
                 </TabPanel>
                 <TabPanel px="0px">
                   <Flex direction="column" alignItems="center" w="100%">
-                    {tasksDone?.length === 0 ? (
+                    {doneIsLoading ? (
+                      <Skeleton height="1rem" w="50%" />
+                    ) : tasksDone?.length === 0 ? (
                       <NoTasks text="Nothing to see here..." />
+                    ) : isDeleting ? (
+                      <>
+                        <Text color="gray.200" fontWeight="medium">
+                          Deleting tasks...
+                        </Text>
+                      </>
                     ) : (
                       <>
                         <Button

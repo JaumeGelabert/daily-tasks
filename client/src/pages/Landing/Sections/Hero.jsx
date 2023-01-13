@@ -30,7 +30,6 @@ export default function Hero() {
           <Center mb="1rem">
             <LongBadge
               text="Check the GitHub repo"
-              to="/"
               icon={
                 <ExternalIcon
                   style={{
