@@ -2,7 +2,13 @@
 import { useContext, useState } from 'react';
 
 // Chakra
-import { Checkbox, Flex, Text, useMediaQuery } from '@chakra-ui/react';
+import {
+  Checkbox,
+  Flex,
+  LightMode,
+  Text,
+  useMediaQuery,
+} from '@chakra-ui/react';
 
 // Custom components
 import { TasksContext } from '../../App';
@@ -50,13 +56,15 @@ export default function Task({ text, status, taskId, key }) {
         className="parentContainerDelete"
       >
         <Flex>
-          <Checkbox
-            colorScheme="green"
-            defaultChecked={status}
-            onChange={() => {
-              changeIsChecked(taskId);
-            }}
-          />
+          <LightMode>
+            <Checkbox
+              colorScheme="green"
+              defaultChecked={status}
+              onChange={() => {
+                changeIsChecked(taskId);
+              }}
+            />
+          </LightMode>
           <Text
             ml=".5rem"
             fontWeight="medium"
