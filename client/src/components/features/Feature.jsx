@@ -15,9 +15,9 @@ export default function Feature({ title, text }) {
         mb="30px"
       >
         <Flex
-          direction="row"
+          direction={isDesktop ? 'row' : 'column-reverse'}
           justifyContent="space-between"
-          alignItems="center"
+          alignItems={isDesktop ? 'center' : 'flex-start'}
           mb="1rem"
           w="100%"
         >
