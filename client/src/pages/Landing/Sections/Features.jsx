@@ -1,15 +1,16 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, useMediaQuery } from '@chakra-ui/react';
 import Feature from '../../../components/features/Feature';
 import LargeFeature from '../../../components/features/LargeFeature';
 
 export default function Features() {
+  const [isDesktop] = useMediaQuery('(min-width: 800px)');
   return (
     <>
       <Flex direction="column" justifyContent="center" alignItems="center">
         <LargeFeature />
         <Flex
-          direction="row"
-          justifyContent="space-between"
+          direction={isDesktop ? 'row' : 'column'}
+          justifyContent={isDesktop ? 'space-between' : 'flex-start'}
           alignItems="center"
           w="100%"
         >

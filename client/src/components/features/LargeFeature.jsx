@@ -3,11 +3,11 @@ import { Flex, Heading, Text, useMediaQuery } from '@chakra-ui/react';
 import featureImg from '../../images/feature.jpeg';
 
 export default function LargeFeature() {
-  const [isDesktop] = useMediaQuery('(min-width:800px)');
+  const [isDesktop] = useMediaQuery('(min-width: 800px)');
   return (
     <>
       <Flex
-        bg={isDesktop ? 'gray.bg' : 'red'}
+        bg="gray.bg"
         w="100%"
         direction={isDesktop ? 'row' : 'column'}
         justifyContent="space-between"

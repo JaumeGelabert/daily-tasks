@@ -1,10 +1,11 @@
-import { Flex, Heading, Text } from '@chakra-ui/react';
+import { Flex, Heading, Text, useMediaQuery } from '@chakra-ui/react';
 
 export default function Feature({ title, text }) {
+  const [isDesktop] = useMediaQuery('(min-width: 800px)');
   return (
     <>
       <Flex
-        w="48.5%"
+        w={isDesktop ? '48.5%' : '100%'}
         bg="gray.bg"
         direction="column"
         justifyContent="space-between"
