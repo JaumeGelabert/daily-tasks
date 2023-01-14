@@ -19,7 +19,7 @@ export default function Features() {
             text="Search by name, date and categories. Find whatever you are looking for."
           />
           <Feature
-            title="Add categories"
+            title="Categories"
             text="Find what you are looking for, faster. Set and delete as many categories as you want."
           />
         </Flex>
