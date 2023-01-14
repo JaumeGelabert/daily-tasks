@@ -37,7 +37,16 @@ export default function Dashboard() {
   const [doneIsLoading, setDoneIsLoading] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
 
+  // useState para el console.log
+  const [isConsoled, setIsConsoled] = useState(false);
+
   const toast = useToast();
+
+  if (!isConsoled) {
+    console.log('Why couldn’t the React component understand the joke?');
+    console.log('Because it didn’t get the context.');
+    setIsConsoled(true);
+  }
 
   useEffect(() => {
     fetch(`${UrlBase}/tasks/incomplete`)
@@ -81,10 +90,6 @@ export default function Dashboard() {
     }, 1000);
     setRefreshTasks(!refreshTasks);
   };
-
-  // Console.log() divertido para los más cotillas
-  console.log('Why couldn’t the React component understand the joke?');
-  console.log('Because it didn’t get the context.');
 
   return (
     <>
