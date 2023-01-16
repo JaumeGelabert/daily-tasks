@@ -5,6 +5,7 @@ import {
   Center,
   Flex,
   Heading,
+  Link,
   useMediaQuery,
 } from '@chakra-ui/react';
 import LongBadge from '../../../components/badges/LongBadge';
@@ -46,7 +47,24 @@ export default function Hero() {
           <Button variant="primary" as={ReacherLink} to="/dashboard">
             Create tasks
           </Button>
-          <Button variant="secondary">About</Button>
+          <Button
+            as={Link}
+            href="https://www.jaumegelabert.dev"
+            target="_blank"
+            rel="noreferrer"
+            variant="secondary"
+            _hover={{ textDecoration: 'none', backgroundColor: 'green.soft' }}
+            _active={{ backgroundColor: 'green.softActive' }}
+            isExternal
+          >
+            Check my portfolio
+            <ExternalIcon
+              style={{
+                color: '#101828',
+                marginLeft: '.5rem',
+              }}
+            />
+          </Button>
         </ButtonGroup>
       </Flex>
     </>
