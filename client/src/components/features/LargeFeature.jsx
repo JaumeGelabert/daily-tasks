@@ -29,7 +29,7 @@ export default function LargeFeature() {
             complete useful tasks.
           </Text>
         </Flex>
-        <Flex w="100%">
+        <Flex w="100%" direction="row" justifyContent="flex-end">
           <Flex h="250px" justifyContent="flex-end" mt="2rem">
             <img alt="feature" src={featureImg} />
           </Flex>
