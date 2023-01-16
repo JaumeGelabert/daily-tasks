@@ -2,6 +2,7 @@
 import { Flex } from '@chakra-ui/react';
 import ContentWrapper from '../../components/utils/ContentWrapper';
 import Features from './Sections/Features';
+import Footer from './Sections/Footer';
 
 // Sections
 import Hero from './Sections/Hero';
@@ -18,6 +19,7 @@ export default function Landing() {
         >
           <Hero />
           <Features />
+          <Footer />
         </Flex>
       </ContentWrapper>
     </>
